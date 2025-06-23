@@ -5,23 +5,23 @@ import { usePathname } from "next/navigation";
 
 const links=[
     {
-        name: "home",
+        name: "Home",
         path: "/",
     },
     {
-        name: "services",
+        name: "Services",
         path: "/services",
     },
     {
-        name: "resume",
+        name: "Resume",
         path: "/resume",
     },
     {
-        name: "work",
+        name: "Work",
         path: "/work",
     },
     {
-        name: "contact",
+        name: "Contact",
         path: "/contact",
     },
 ]
@@ -34,8 +34,8 @@ const Nav = () => {
         {links.map((link, index)=>{
             return <Link href={link.path} key={index }
              className={`${
-                link.path === pathname && "text-accent border-b-2 border-accent"
-                }capitalize font-medium hover:text-accent transition-all`}
+                link.path === pathname && "text-accent  border-accent border-b-2 "
+                } font-medium hover:text-accent transition-all `}
                 >
 
                 {link.name}
