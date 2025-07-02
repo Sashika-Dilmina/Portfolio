@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
 import {FiDownload} from "react-icons/fi";
 
+
+// components
+import Social from "@/components/Social";
+
+
 const Home = () => {
   return(
     <section className="h-full">
@@ -18,6 +23,19 @@ const Home = () => {
                  in a variety of programming languages and modern technologies as a Software Engineering undergraduate.
               </p>
               {/*btn and socials*/}
+              <div className="flex flex-col xl:flex-row items-center gap-8">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="uppercase flex items-center gap-2"
+                  >
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+              </Button>
+              <div className="mb-8 xl:mb-0">
+                <Social/>
+              </div>
+              </div>
           </div>
           {/* photo */}
           <div>photo</div>
