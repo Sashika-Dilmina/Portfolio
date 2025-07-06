@@ -30,7 +30,7 @@ const Photo = () => (
       xmlns="http://www.w3.org/2000/svg"
       initial={{ rotate: 0 }}
       animate={{ rotate: 360 }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      transition={{ duration: 20,  repeat: Infinity, ease: "linear" }}
     >
       <motion.circle
         cx="253"
