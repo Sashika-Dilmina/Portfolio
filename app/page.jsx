@@ -16,8 +16,8 @@ const Home = () => {
         {/*text*/}
         <div className="text-center xl:text-left order-2 xl:order-none -mt-10">
           <span className="text-xl">Software Engineer</span>
-          <h1 className="h1 mb-5">
-            Hello I'm <br /> <span className="text-accent">Siwanthaka</span>
+          <h1 className="h2 mb-5">
+            Hello I'm <br /> <span className="text-accent">Sashika</span>
           </h1>
           <p className="max-w-[500px] mb-6 text-white/80">
             I specialize in creating elegant digital experiences and have strong proficiency in a wide range of programming languages and technologies.

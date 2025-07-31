@@ -45,20 +45,33 @@ const sheetVariants = cva(
   }
 )
 
-const SheetContent = React.forwardRef(({ side = "right", className, children, ...props }, ref) => (
-  <SheetPortal>
-    <SheetOverlay />
-    <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
-      {children}
-      <SheetPrimitive.Close
-        className="absolute right-8 top-8 transition-opacity 
-        outline-none">
-        <IoMdClose className="text-3xl text-accent" />
-        <span className="sr-only">Close</span>
-      </SheetPrimitive.Close>
-    </SheetPrimitive.Content>
-  </SheetPortal>
-))
+const SheetContent = React.forwardRef(
+  ({ side = "right", className, children, title = "Side panel", ...props }, ref) => (
+    <SheetPortal>
+      <SheetOverlay />
+      <SheetPrimitive.Content
+        ref={ref}
+        className={cn(sheetVariants({ side }), className)}
+        {...props}
+      >
+        {/* Hidden title for accessibility */}
+        <SheetPrimitive.Title className="sr-only">
+          {title}
+        </SheetPrimitive.Title>
+
+        {children}
+
+        <SheetPrimitive.Close
+          className="absolute right-8 top-8 transition-opacity outline-none"
+        >
+          <IoMdClose className="text-3xl text-accent" />
+          <span className="sr-only">Close</span>
+        </SheetPrimitive.Close>
+      </SheetPrimitive.Content>
+    </SheetPortal>
+  )
+);
+
 SheetContent.displayName = SheetPrimitive.Content.displayName
 
 const SheetHeader = ({
