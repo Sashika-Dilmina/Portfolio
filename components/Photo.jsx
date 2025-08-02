@@ -15,24 +15,23 @@ const Photo = () => {
          >
           {/*image*/}
           <motion.div
-          initial={{opacity: 0}} 
+          initial={{ opacity: 0 }}
           animate={{
-          opacity: 1, 
-          transition: {delay: 2.4, duration: 0.4, ease: "easeInOut"},
-           }}
-          className="w-[250px] h-[250px] xl:w-[350px] xl:h-[350px] mix-blend-lighten absolute"
-          
-          >
+          opacity: 1,
+          transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" },
+  }}
+    className="w-[230px] h-[230px] xl:w-[330px] xl:h-[330px] mix-blend-lighten absolute translate-x-6 translate-y-5 xl:translate-x-9 xl:translate-y-6"
+    >
+         <Image
+          src="/assets/photo2.png"
+          priority
+          quality={100}
+          fill
+          alt=""
+          className="object-contain"
+        />
+        </motion.div>
 
-          <Image
-            src="/assets/photo.png"
-            priority
-            quality={100}
-            fill
-            alt=""
-            className="object-contain"
-          />
-          </motion.div>
 
           {/*circle*/}
           <motion.svg 
