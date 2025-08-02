@@ -1,5 +1,73 @@
+"use client";
+
+import {motion} from "framer-motion";
+import React,{useState} from 'react';
+
+
+import {Swiper,SwiperSlide} from "swiper/react";
+import "swiper/css";
+
+import {BsArrowUpRight,BsGithub} from 'react-icons/bs'
+
+import { Tooltip,TooltipProvider,TooltipTrigger } from "@radix-ui/react-tooltip";
+
+ import Link from "next/link";
+ import Image from "next/image";
+
+
+const projects = [
+    {
+        num : '01',
+        category: 'frontend',
+        title : 'project 1',
+        discription: "Lorem ipsum hfjfkssffsf. ksfksfkfksfkff!",
+        stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
+        image:'/assest/work/thumb1.png',
+        live: "",
+        github: "",
+    },
+    {
+        num : '02',
+        category: 'frontend',
+        title : 'project 2',
+        discription: "Lorem ipsum hfjfkssffsf. ksfksfkfksfkff!",
+        stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
+        image:'/assest/work/thumb2.png',
+        live: "",
+        github: "",
+    },
+
+    {
+        num : '03',
+        category: 'frontend',
+        title : 'project 3',
+        discription: "Lorem ipsum hfjfkssffsf. ksfksfkfksfkff!",
+        stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
+        image:'/assest/work/thumb3.png',
+        live: '',
+        github: "",
+    },
+    
+];
+
+
 const Work = () => {
-    return <div>work page</div>;
+    const [project,setProject] = useState(projects[0]);
+    return (
+        <motion.section 
+        initial={{opacity: 0}} 
+        animate={{opacity: 1}} 
+        className="min-h-
+        [80vh] flex flex-col justify-center py-12 xl:px-0"
+        >
+        <div className="container mx-auto">
+            <div className="flex flex-col">
+                <div>text</div>
+                <div>slider</div>
+            </div>
+        </div>
+    </motion.section>
+    ) ;
 };
 
 export default Work;

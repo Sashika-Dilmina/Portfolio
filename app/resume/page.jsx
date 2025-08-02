@@ -100,9 +100,10 @@ const Resume = () => {
               <div className="flex flex-col gap-[30px]">
                 <div className="text-center xl:text-left">
                   <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 ">{skills.description}</p>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 mt-8 -mb-8">{skills.description}</p>
+
                 </div>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mt-8 -mb-8">
                   {skills.skillList.map((skill, index) => (
                     <li key={index}>
                       <TooltipProvider delayDuration={100}>
