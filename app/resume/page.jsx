@@ -27,18 +27,23 @@ const about = {
 
 const experience = {
   title: 'My Experience',
-  description: "Worked on various fullstack and backend development projects.",
+  description: "", // You can remove or leave empty since we'll move it to items
   items: [
-    { company: "CINEC Campus", position: "Fullstack Engineer", duration: "2025 - present" },
-    { company: "Dev Wizards pvt ltd", position: "Back End Developer", duration: "2025 - present" },
+    { 
+      company: "CINEC Campus", 
+      position: "Undergraduate Software Engineer", 
+      duration: "2023 - 2025",
+      description: "Undergraduate Software Engineering student with hands-on experience in web development, including HTML, CSS, JavaScript, and React, as well as programming in Java and Python. I have also worked on AI-based projects, integrating machine learning concepts into practical applications. My academic journey has strengthened my problem-solving skills, teamwork abilities, and passion for creating innovative software solutions."
+    },
   ]
 };
+
 
 const education = {
   title: 'My Education',
   description: "Educational qualifications in software engineering, programming, and machine learning.",
   items: [
-    { Campus: "CINEC Campus", Degree: "(BSc) Hons in Software Engineering", duration: "2023 - 2027" },
+    { Campus: "CINEC Campus", Degree: "(BSc) Software Engineering", duration: "2023 - 2027" },
     { Campus: "IJSE", Degree: "Java Programming Language", duration: "2023 - 2024" },
     { Campus: "SLITT", Degree: "AI & Machine Learning", duration: "2024" },
     { Campus: "University of Moratuwa", Degree: "Python Language", duration: "2024" },
@@ -122,25 +127,43 @@ const Resume = () => {
               </div>
             </TabsContent>
 
-           <TabsContent value="about" className="w-full text-center xl:text-left">
-                        <div className="flex flex-col gap-[30px]">
-                            <h3 className="text-4xl font-bold">{about.title}</h3>
-                            <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                            {about.description}
-                            </p>
-                            <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px]
-                            mx-auto xl:mx-0">
-                                {about.info.map((item, index)=>{
-                                    return <li key={index} className="flex items-center justify-center
-                                    xl:justify-start gap-4">
-                                        <span className="text-white/60">{item.fieldName}</span>
-                                        <span className="text-sm">{item.fieldValue}</span>
-                                    </li>
-                                })}
-                            </ul>
-                        </div>
-                
-                    </TabsContent>
+         <TabsContent
+  value="about"
+  className="w-full text-center xl:text-left 
+    bg-gradient-to-br from-white/10 to-white/5 
+    border border-white/10 
+    backdrop-blur-xl 
+    shadow-lg 
+    p-6 rounded-2xl 
+    hover:shadow-accent/30 
+    hover:border-accent 
+    transition-all 
+    flex flex-col justify-start items-start gap-3"
+>
+  <div className="flex flex-col gap-[30px] w-full">
+    <h3 className="text-4xl font-bold">{about.title}</h3>
+    <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+      {about.description}
+    </p>
+    <ul
+      className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0"
+    >
+      {about.info.map((item, index) => {
+        return (
+          <li
+            key={index}
+            className="flex items-center justify-center xl:justify-start gap-4"
+          >
+            <span className="text-white/60">{item.fieldName}</span>
+            <span className="text-sm">{item.fieldValue}</span>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</TabsContent>
+
+
                 </div>
             </Tabs>
         </div>
@@ -152,22 +175,43 @@ const Section = ({ title, description, items, type }) => (
   <div className="flex flex-col gap-[30px] text-center xl:text-left">
     <h3 className="text-4xl font-bold">{title}</h3>
     <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{description}</p>
-    <ScrollArea className="h-[400px]">
-      <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-        {items.map((item, index) => (
-          <li key={index} className="bg-white/5 border border-white/10 shadow-lg h-[184px] py-6 px-8 rounded-2xl hover:scale-[1.02] transition-all flex flex-col justify-center items-center lg:items-start gap-2">
-            <span className="text-accent font-medium">{item.duration}</span>
-            <h3 className="text-xl font-semibold text-center lg:text-left">
-              {type === 'experience' ? item.position : item.Degree}
-            </h3>
-            <div className="flex items-center gap-3 text-sm text-white/60">
-              <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-              <p>{type === 'experience' ? item.company : item.Campus}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </ScrollArea>
+    
+   <ScrollArea className={`${type === 'experience' ? 'h-[500px]' : 'h-[400px]'} pr-4`}>
+  <ul className={`grid ${type === 'experience' ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-2'} gap-6`}>
+    {items.map((item, index) => (
+      <motion.li
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: index * 0.1 }}
+        viewport={{ once: true }}
+        className={`bg-gradient-to-br from-white/10 to-white/5 border border-white/10 backdrop-blur-xl shadow-lg 
+          ${type === 'experience' ? 'min-h-[350px]' : 'h-[184px]'}
+          p-6 rounded-2xl hover:shadow-accent/30 hover:border-accent transition-all 
+          flex flex-col justify-start items-start gap-3`}
+      >
+        <span className="text-accent font-semibold tracking-wide text-sm">{item.duration}</span>
+
+        <h3 className="text-xl font-bold text-white leading-snug">
+          {type === 'experience' ? item.position : item.Degree}
+        </h3>
+
+        <div className="flex items-center gap-2 text-lg text-white/60">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+          <p>{type === 'experience' ? item.company : item.Campus}</p>
+        </div>
+
+        {type === 'experience' && (
+          <p className="mt-2 text-white/70 text-base leading-relaxed">
+            {item.description}
+          </p>
+        )}
+      </motion.li>
+    ))}
+  </ul>
+</ScrollArea>
+
+
   </div>
 );
 
