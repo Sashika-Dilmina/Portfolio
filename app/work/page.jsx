@@ -19,75 +19,87 @@ import WorkSliderBtns from "@/components/ui/WorkSliderBtns";
 const projects = [
     {
         num : '01',
-        category: 'Restaurant-Management-System',
+        category: '3D IPhone-Website',
         title : 'project 1',
+        discription: "Recreate the Apple IPhone 15 pro website,combining GSAP animations and Three.js 3D effects.",
+        stack:[{name: "React"}, {name: "Threejs"}, {name:"GSAP"}, {name:"Tailwind css"}],
+        image:'/assets/work/thumb1.jpg',
+        live: '',
+        github: "https://github.com/Sashika-Dilmina/Apple-Website",
+    },
+    {
+        num : '02',
+        category: 'Car Showcase Application',
+        title : 'project 2',
+        discription: "A modern, responsive Car Showcase Application built with React, Next.js, TypeScript, and Tailwind CSS, offering fast performance, sleek design, and dynamic car listings.Perfect for dealerships and enthusiasts to explore vehicles with advanced search and filtering.",
+        stack:[{name: "React"}, {name: "Nextjs"}, {name:"TypeScript"},{name:"Tailwind css"} ],
+        image:'/assets/work/thumb2.jpg',
+        live: '',
+        github: "https://github.com/Sashika-Dilmina/Car-Hub",
+    },
+    {
+        num : '03',
+        category: 'Restaurant-Management-System',
+        title : 'project 3',
         discription: "This project is an Admin Dashboard for a Restaurant Management System, developed using HTML, CSS, JavaScript, and PHP. It allows administrators to manage food items, categories, orders, and admin users efficiently.",
         stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"} ,{name:"Php"}],
-        image:'/assets/work/thumb1.jpg',
+        image:'/assets/work/thumb3.jpg',
         live: "",
         github: "https://github.com/Sashika-Dilmina/Restaurant-Management-System",
     },
     {
-        num : '02',
+        num : '04',
         category: ' PageTurner - Online Book Store',
-        title : 'project 2',
-        discription: "PageTurner is a user-friendly and fully functional online book store built using HTML, CSS, JavaScript, PHP, and MySQL. It allows users to search and order books, and provides admins with the ability to manage users and inventory effectively.",
+        title : 'project 4',
+        discription: "A user-friendly web application built with HTML, CSS, JavaScript, PHP, and MySQL. Features include user management, book catalog, search functionality, shopping cart, and order handling for both users and admins.",
         stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"} ,{name:"Php"}],
-        image:'/assets/work/thumb2.png',
+        image:'/assets/work/thumb4.jpg',
         live: "",
-        github: "",
+        github: "https://github.com/Sashika-Dilmina/Book-store",
     },
 
     {
-        num : '03',
-        category: 'AI-Powered-ChatBot',
-        title : 'project 3',
-        discription: "A simple AI chatbot implemented using HTML, CSS, and JavaScript. This project demonstrates how to create a basic interactive chatbot interface for web applications.",
-        stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
-        image:'/assets/work/thumb3.png',
-        live: '',
-        github: "",
-    },
-     {
-        num : '04',
-        category: 'AI-Powered-ChatBot',
-        title : 'project 3',
-        discription: "A simple AI chatbot implemented using HTML, CSS, and JavaScript. This project demonstrates how to create a basic interactive chatbot interface for web applications.",
-        stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
-        image:'/assets/work/thumb3.png',
-        live: '',
-        github: "",
-    },
-     {
         num : '05',
-        category: 'AI-Powered-ChatBot',
-        title : 'project 3',
-        discription: "A simple AI chatbot implemented using HTML, CSS, and JavaScript. This project demonstrates how to create a basic interactive chatbot interface for web applications.",
-        stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
-        image:'/assets/work/thumb3.png',
+        category: 'Hotel-management-system',
+        title : 'project 5',
+        discription: "Hotel Management System is a Java desktop application built with Swing and JDBC to streamline hotel operations.",
+        stack:[{name: "Java"}],
+        image:'/assets/work/thumb8.jpg',
         live: '',
-        github: "",
+        github: "https://github.com/Sashika-Dilmina/Hotel-management-system",
     },
-     {
+    {
         num : '06',
         category: 'AI-Powered-ChatBot',
-        title : 'project 3',
+        title : 'project 6',
         discription: "A simple AI chatbot implemented using HTML, CSS, and JavaScript. This project demonstrates how to create a basic interactive chatbot interface for web applications.",
         stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
-        image:'/assets/work/thumb3.png',
+        image:'/assets/work/thumb5.jpg',
         live: '',
-        github: "",
+        github: "https://github.com/Sashika-Dilmina/AI-Powered-ChatBot",
     },
      {
         num : '07',
-        category: 'AI-Powered-ChatBot',
-        title : 'project 3',
-        discription: "A simple AI chatbot implemented using HTML, CSS, and JavaScript. This project demonstrates how to create a basic interactive chatbot interface for web applications.",
-        stack:[{name: "Html 5"}, {name: "Css 3"}, {name:"Javascript"}],
-        image:'/assets/work/thumb3.png',
+        category: 'PM-Manager',
+        title : 'project 7',
+        discription: "A modern project management tool with an interactive Gantt chart, task tracking, and PDF export built using React and TypeScript.",
+        stack:[{name: "React"}, {name: "Typescript"}],
+        image:'/assets/work/thumb6.jpg',
         live: '',
-        github: "",
+        github: "https://github.com/Sashika-Dilmina/PM-Manager",
     },
+     {
+        num : '08',
+        category: 'Programming Tutor Bot',
+        title : 'project 8',
+        discription: "A simple Python-based interactive chatbot designed to teach programming concepts to beginners. Learn topics like variables, loops, functions, data structures, and more—with a quiz to test your knowledge!",
+        stack:[{name: "Python"}],
+        image:'/assets/work/thumb7.jpg',
+        live: '',
+        github: "https://github.com/Sashika-Dilmina/Chat-Bot",
+    },
+     
+     
      
     
 ];
@@ -122,7 +134,7 @@ const Work = () => {
                         {/*project category*/}
                         <h3 className="text-[35px] font-bold leading-none text-white
                          group-hover:text-accent transition-all duration-500 capitalize">
-                            {project.category} project
+                            {project.category}
                             </h3>
                         {/*project description*/}
                         <p className="text-white/60 text-lg">{project.discription}</p>
