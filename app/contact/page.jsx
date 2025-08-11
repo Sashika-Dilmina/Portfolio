@@ -18,25 +18,12 @@ import {
 } from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
-
 import { motion } from "framer-motion";
 
 const info = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "(+94) 070 299 5495",
-  },
-  {
-    icon: <FaEnvelope />,
-    title: "Email",
-    description: "sashikadilmina2001@gmail.com",
-  },
-  {
-    icon: <FaMapMarkedAlt />,
-    title: "Address",
-    description: "Colombo greater, Malabe",
-  },
+  { icon: <FaPhoneAlt />, title: "Phone", description: "(+94) 070 299 5495" },
+  { icon: <FaEnvelope />, title: "Email", description: "sashikadilmina2001@gmail.com" },
+  { icon: <FaMapMarkedAlt />, title: "Address", description: "Colombo greater, Malabe" },
 ];
 
 const Contact = () => {
@@ -50,26 +37,26 @@ const Contact = () => {
   });
 
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // For Select (which might not trigger a normal event), handle separately:
   const handleServiceChange = (value) => {
     setFormData((prev) => ({ ...prev, service: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setStatus("Sending...");
+    setStatus("⏳ Sending...");
+    setLoading(true);
 
     emailjs
       .send(
-        "service_123", // Replace with your EmailJS Service ID
-        "template_tgc05v8", // Replace with your EmailJS Template ID
+        "service_v3ejxnd", // Your EmailJS Service ID
+        "template_tgc05v8", // Your EmailJS Template ID
         {
           from_name: `${formData.firstname} ${formData.lastname}`,
           from_email: formData.email,
@@ -77,7 +64,7 @@ const Contact = () => {
           service: formData.service,
           message: formData.message,
         },
-        "m1EsBVrOS2Speci9z" // Replace with your EmailJS Public Key
+        "m1EsBVrOS2Speci9z" // Your EmailJS Public Key
       )
       .then(
         () => {
@@ -90,10 +77,26 @@ const Contact = () => {
             service: "",
             message: "",
           });
+          setLoading(false);
         },
         (error) => {
-          console.error("Error:", error);
-          setStatus("❌ Failed to send message. Try again.");
+          console.error("EmailJS Error:", error); // Full error in console
+
+          let errorMessage = "❌ Failed to send message. ";
+
+          // Detailed reason
+          if (error?.text) {
+            errorMessage += `Reason: ${error.text}`;
+          } else if (error?.status === 0) {
+            errorMessage += "Network error — please check your internet.";
+          } else if (typeof error === "string") {
+            errorMessage += error;
+          } else {
+            errorMessage += "Unexpected error occurred. Please try again.";
+          }
+
+          setStatus(errorMessage);
+          setLoading(false);
         }
       );
   };
@@ -123,37 +126,10 @@ const Contact = () => {
 
               {/* input grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input
-                  type="text"
-                  name="firstname"
-                  placeholder="Firstname"
-                  value={formData.firstname}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  type="text"
-                  name="lastname"
-                  placeholder="Lastname"
-                  value={formData.lastname}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Email address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
+                <Input type="text" name="firstname" placeholder="Firstname" value={formData.firstname} onChange={handleChange} required />
+                <Input type="text" name="lastname" placeholder="Lastname" value={formData.lastname} onChange={handleChange} required />
+                <Input type="email" name="email" placeholder="Email address" value={formData.email} onChange={handleChange} required />
+                <Input type="tel" name="phone" placeholder="Phone number" value={formData.phone} onChange={handleChange} />
               </div>
 
               {/* select */}
@@ -185,29 +161,28 @@ const Contact = () => {
               />
 
               {/* button */}
-              <Button size="md" className="max-w-[160px] self-start" type="submit">
-                Send message
+              <Button size="md" className="max-w-[160px] self-start" type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Send message"}
               </Button>
 
               {/* status message */}
               {status && (
-                <p className="mt-3 text-center text-sm text-gray-300">{status}</p>
+                <p
+                  className={`mt-3 text-center text-sm ${
+                    status.startsWith("✅") ? "text-green-400" : "text-red-400"
+                  }`}
+                >
+                  {status}
+                </p>
               )}
             </form>
           </div>
 
           {/* info */}
-          <div
-            className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0"
-            aria-label="Contact Information"
-          >
+          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0" aria-label="Contact Information">
             <ul className="flex flex-col gap-6">
               {info.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-6"
-                  role="listitem"
-                >
+                <li key={index} className="flex items-center gap-6" role="listitem">
                   <div
                     className="w-[52px] h-[57px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center"
                     aria-hidden="true"

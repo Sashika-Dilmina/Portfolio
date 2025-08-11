@@ -42,7 +42,7 @@ const services = [
   },
   {
     num: "06",
-    title: "Python App Development",
+    title: "Python Development",
     description:
       "Creating robust and efficient Python-based applications for web, automation, and data processing tasks.",
     href: "/services/python",
@@ -74,13 +74,13 @@ const Services = () => {
                 </span>
 
                 {service.href ? (
-                  <Link
+                  <div
                     href={service.href}
                     className="w-[48px] h-[48px] rounded-full bg-white flex justify-center items-center transition-all duration-300 group-hover:bg-accent hover:rotate-[-45deg]"
                     aria-label={`Learn more about ${service.title}`}
                   >
                     <BsArrowDownRight className="text-primary text-2xl" />
-                  </Link>
+                  </div>
                 ) : (
                   <div className="w-[48px] h-[48px] rounded-full bg-white/10 flex justify-center items-center opacity-40">
                     <BsArrowDownRight className="text-primary text-2xl" />
