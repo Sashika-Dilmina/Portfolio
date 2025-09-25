@@ -26,25 +26,26 @@ const services = [
       "Building scalable server-side applications, APIs, and databases with a focus on performance and security.",
     href: "/services/backend",
   },
+ 
   {
     num: "04",
-    title: "DevOps Engineering",
+    title: "QA & Testing",
     description:
-      "Automating deployment pipelines, managing cloud infrastructure, and ensuring system reliability and uptime.",
-    href: "/services/devops",
+      "Implementing automated testing strategies to ensure software reliability and reduce manual QA efforts.",
+    href: "/services/automation",
   },
   {
     num: "05",
-    title: "Automation Testing",
+    title: "Mobile App Development",
     description:
-      "Implementing automated testing strategies to ensure software reliability and reduce manual QA efforts.",
-    href: "/services/testing",
+      "creating custom, high-quality Android applications using Android Studio, focusing on smooth performance, modern UI, and features that fit your business needs",
+    href: "/services/android",
   },
-  {
+   {
     num: "06",
-    title: "Python Development",
+    title: "AI & Machine Learning",
     description:
-      "Creating robust and efficient Python-based applications for web, automation, and data processing tasks.",
+      "Developing basic machine learning models in Python, integrated AI features into web applications, and performed data analysis and visualization to extract actionable insights.",
     href: "/services/python",
   },
 ];

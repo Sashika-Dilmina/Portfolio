@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,9 +35,6 @@ const Contact = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -50,55 +46,22 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus("⏳ Sending...");
-    setLoading(true);
 
-    emailjs
-      .send(
-        "service_v3ejxnd", // Your EmailJS Service ID
-        "template_tgc05v8", // Your EmailJS Template ID
-        {
-          from_name: `${formData.firstname} ${formData.lastname}`,
-          from_email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          message: formData.message,
-        },
-        "m1EsBVrOS2Speci9z" // Your EmailJS Public Key
-      )
-      .then(
-        () => {
-          setStatus("✅ Message sent successfully!");
-          setFormData({
-            firstname: "",
-            lastname: "",
-            email: "",
-            phone: "",
-            service: "",
-            message: "",
-          });
-          setLoading(false);
-        },
-        (error) => {
-          console.error("EmailJS Error:", error); // Full error in console
+    // Build mailto link
+    const subject = `Hire Request from ${formData.firstname} ${formData.lastname}`;
+    const body = `
+Name: ${formData.firstname} ${formData.lastname}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}
+    `;
 
-          let errorMessage = "❌ Failed to send message. ";
+    const mailtoLink = `mailto:sashikadilmina2001@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
 
-          // Detailed reason
-          if (error?.text) {
-            errorMessage += `Reason: ${error.text}`;
-          } else if (error?.status === 0) {
-            errorMessage += "Network error — please check your internet.";
-          } else if (typeof error === "string") {
-            errorMessage += error;
-          } else {
-            errorMessage += "Unexpected error occurred. Please try again.";
-          }
-
-          setStatus(errorMessage);
-          setLoading(false);
-        }
-      );
+    window.location.href = mailtoLink; // open email client
   };
 
   return (
@@ -118,18 +81,45 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className="flex flex-col gap-3 p-10 bg-[#27272c] rounded-xl"
             >
-              <h3 className="text-4xl text-accent -mt-6">Let's work together</h3>
+              <h3 className="text-4xl text-accent -mt-6">Hire Me</h3>
               <p className="text-white/60 text-base">
-                I’m available for freelance work or full-time collaboration. Share
-                your project details and let's connect.
+                Looking to bring your idea to life? Fill out the details below and your email
+                app will open so you can send me the message directly.
               </p>
 
               {/* input grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" name="firstname" placeholder="Firstname" value={formData.firstname} onChange={handleChange} required />
-                <Input type="text" name="lastname" placeholder="Lastname" value={formData.lastname} onChange={handleChange} required />
-                <Input type="email" name="email" placeholder="Email address" value={formData.email} onChange={handleChange} required />
-                <Input type="tel" name="phone" placeholder="Phone number" value={formData.phone} onChange={handleChange} />
+                <Input
+                  type="text"
+                  name="firstname"
+                  placeholder="Firstname"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="text"
+                  name="lastname"
+                  placeholder="Lastname"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
               </div>
 
               {/* select */}
@@ -141,11 +131,10 @@ const Contact = () => {
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
                     <SelectItem value="frontend">Frontend Development</SelectItem>
-                    <SelectItem value="uiux">Ui/Ux Design</SelectItem>
+                    <SelectItem value="uiux">UI/UX Design</SelectItem>
                     <SelectItem value="backend">Backend Development</SelectItem>
-                    <SelectItem value="devops">DevOps Engineering</SelectItem>
-                    <SelectItem value="automation">Automation Testing</SelectItem>
-                    <SelectItem value="python">Python App Development</SelectItem>
+                    <SelectItem value="automation">QA & Testing</SelectItem>
+                    <SelectItem value="android">Mobile App Development</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -161,25 +150,21 @@ const Contact = () => {
               />
 
               {/* button */}
-              <Button size="md" className="max-w-[160px] self-start" type="submit" disabled={loading}>
-                {loading ? "Sending..." : "Send message"}
+              <Button
+                size="md"
+                className="max-w-[160px] self-start"
+                type="submit"
+              >
+                Send Message
               </Button>
-
-              {/* status message */}
-              {status && (
-                <p
-                  className={`mt-3 text-center text-sm ${
-                    status.startsWith("✅") ? "text-green-400" : "text-red-400"
-                  }`}
-                >
-                  {status}
-                </p>
-              )}
             </form>
           </div>
 
           {/* info */}
-          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0" aria-label="Contact Information">
+          <div
+            className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0"
+            aria-label="Contact Information"
+          >
             <ul className="flex flex-col gap-6">
               {info.map((item, index) => (
                 <li key={index} className="flex items-center gap-6" role="listitem">
