@@ -51,6 +51,7 @@ const SheetContent = React.forwardRef(
       <SheetOverlay />
       <SheetPrimitive.Content
         ref={ref}
+        aria-describedby={undefined}  // disable warning unless SheetDescription is provided
         className={cn(sheetVariants({ side }), className)}
         {...props}
       >
