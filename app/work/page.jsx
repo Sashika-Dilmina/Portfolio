@@ -33,8 +33,19 @@ const projects = [
   },
   {
     num: "02",
-    category: "Car Showcase Application",
+    category: "Biz Tracker",
     title: "project 2",
+    discription:
+      "Fully responsive Expense Tracker App using the MERN (MongoDB, Express, React, Node.js) stack!",
+    stack: [{ name: "MongoDB" }, { name: "Express" }, { name: "React" }, { name: "Node.js" }],
+    image: "/assets/work/thumb22.png",
+    live: "",
+    github: "https://github.com/Sashika-Dilmina/Biz_Tracker",
+  },
+   {
+    num: "03",
+    category: "Car Showcase Application",
+    title: "project 3",
     discription:
       "A modern, responsive Car Showcase Application built with React, Next.js, TypeScript, and Tailwind CSS, offering fast performance, sleek design, and dynamic car listings. Perfect for dealerships and enthusiasts to explore vehicles with advanced search and filtering.",
     stack: [{ name: "React" }, { name: "Nextjs" }, { name: "TypeScript" }, { name: "Tailwind css" }],
@@ -43,9 +54,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Car-Hub",
   },
   {
-    num: "03",
+    num: "04",
     category: "Restaurant-Management-System",
-    title: "project 3",
+    title: "project 4",
     discription:
       "This project is an Admin Dashboard for a Restaurant Management System, developed using HTML, CSS, JavaScript, and PHP. It allows administrators to manage food items, categories, orders, and admin users efficiently.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Php" }],
@@ -54,9 +65,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Restaurant-Management-System",
   },
   {
-    num: "04",
+    num: "05",
     category: "PageTurner - Online Book Store",
-    title: "project 4",
+    title: "project 5",
     discription:
       "A user-friendly web application built with HTML, CSS, JavaScript, PHP, and MySQL. Features include user management, book catalog, search functionality, shopping cart, and order handling for both users and admins.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Php" }],
@@ -65,9 +76,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Book-store",
   },
   {
-    num: "05",
+    num: "06",
     category: "Hotel-management-system",
-    title: "project 5",
+    title: "project 6",
     discription:
       "Hotel Management System is a Java desktop application built with Swing and JDBC to streamline hotel operations.",
     stack: [{ name: "Java" }],
@@ -76,9 +87,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Hotel-management-system",
   },
   {
-    num: "06",
+    num: "07",
     category: "AI-Powered-ChatBot",
-    title: "project 6",
+    title: "project 7",
     discription:
       "A simple AI chatbot implemented using HTML, CSS, and JavaScript. This project demonstrates how to create a basic interactive chatbot interface for web applications.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
@@ -87,9 +98,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/AI-Powered-ChatBot",
   },
   {
-    num: "07",
+    num: "08",
     category: "PM-Manager",
-    title: "project 7",
+    title: "project 8",
     discription:
       "A modern project management tool with an interactive Gantt chart, task tracking, and PDF export built using React and TypeScript.",
     stack: [{ name: "React" }, { name: "Typescript" }],
