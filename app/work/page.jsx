@@ -15,7 +15,6 @@ import {
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 
-import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/ui/WorkSliderBtns";
 
@@ -28,7 +27,7 @@ const projects = [
       "Recreate the Apple IPhone 15 pro website, combining GSAP animations and Three.js 3D effects.",
     stack: [{ name: "React" }, { name: "Threejs" }, { name: "GSAP" }, { name: "Tailwind css" }],
     image: "/assets/work/thumb1.jpg",
-    live: "",
+    live: "https://appleweb-xi.vercel.app/",
     github: "https://github.com/Sashika-Dilmina/Apple-Website",
   },
   {
@@ -42,12 +41,12 @@ const projects = [
     live: "",
     github: "https://github.com/Sashika-Dilmina/Biz_Tracker",
   },
-   {
+  {
     num: "03",
     category: "Car Showcase Application",
     title: "project 3",
     discription:
-      "A modern, responsive Car Showcase Application built with React, Next.js, TypeScript, and Tailwind CSS, offering fast performance, sleek design, and dynamic car listings. Perfect for dealerships and enthusiasts to explore vehicles with advanced search and filtering.",
+      "A modern, responsive Car Showcase Application built with React, Next.js, TypeScript, and Tailwind CSS.",
     stack: [{ name: "React" }, { name: "Nextjs" }, { name: "TypeScript" }, { name: "Tailwind css" }],
     image: "/assets/work/thumb2.jpg",
     live: "",
@@ -58,7 +57,7 @@ const projects = [
     category: "Restaurant-Management-System",
     title: "project 4",
     discription:
-      "This project is an Admin Dashboard for a Restaurant Management System, developed using HTML, CSS, JavaScript, and PHP. It allows administrators to manage food items, categories, orders, and admin users efficiently.",
+      "Admin Dashboard for a Restaurant Management System using HTML, CSS, JavaScript, and PHP.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Php" }],
     image: "/assets/work/thumb3.jpg",
     live: "",
@@ -69,7 +68,7 @@ const projects = [
     category: "PageTurner - Online Book Store",
     title: "project 5",
     discription:
-      "A user-friendly web application built with HTML, CSS, JavaScript, PHP, and MySQL. Features include user management, book catalog, search functionality, shopping cart, and order handling for both users and admins.",
+      "Web application built with HTML, CSS, JavaScript, PHP, and MySQL with shopping cart & admin features.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Php" }],
     image: "/assets/work/thumb4.jpg",
     live: "",
@@ -80,7 +79,7 @@ const projects = [
     category: "Hotel-management-system",
     title: "project 6",
     discription:
-      "Hotel Management System is a Java desktop application built with Swing and JDBC to streamline hotel operations.",
+      "Java desktop application built with Swing and JDBC to streamline hotel operations.",
     stack: [{ name: "Java" }],
     image: "/assets/work/thumb8.jpg",
     live: "",
@@ -91,7 +90,7 @@ const projects = [
     category: "AI-Powered-ChatBot",
     title: "project 7",
     discription:
-      "A simple AI chatbot implemented using HTML, CSS, and JavaScript. This project demonstrates how to create a basic interactive chatbot interface for web applications.",
+      "Simple AI chatbot using HTML, CSS, and JavaScript with an interactive interface.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
     image: "/assets/work/thumb5.jpg",
     live: "",
@@ -102,22 +101,20 @@ const projects = [
     category: "PM-Manager",
     title: "project 8",
     discription:
-      "A modern project management tool with an interactive Gantt chart, task tracking, and PDF export built using React and TypeScript.",
+      "Modern project management tool with Gantt chart, task tracking, and PDF export built with React & TypeScript.",
     stack: [{ name: "React" }, { name: "Typescript" }],
     image: "/assets/work/thumb6.jpg",
     live: "",
     github: "https://github.com/Sashika-Dilmina/PM-Manager",
   },
-  
 ];
 
 const Work = () => {
   const [project, setProject] = useState(projects[0]);
 
   const handleSlideChange = (swiper) => {
-  setProject(projects[swiper.realIndex]);
-};
-
+    setProject(projects[swiper.realIndex]);
+  };
 
   return (
     <motion.section
@@ -136,18 +133,14 @@ const Work = () => {
             className="w-full xl:w-1/2 flex flex-col justify-between order-2 xl:order-none"
           >
             <div className="flex flex-col gap-6">
-              {/* Number with outline effect */}
               <h2 className="text-6xl font-extrabold text-transparent text-outline select-none">{project.num}</h2>
 
-              {/* Category */}
               <h3 className="text-3xl md:text-4xl font-extrabold text-white capitalize group-hover:text-accent transition-colors duration-500">
                 {project.category}
               </h3>
 
-              {/* Description */}
               <p className="text-gray-300 text-lg leading-relaxed">{project.discription}</p>
 
-              {/* Tech Stack */}
               <ul className="flex flex-wrap gap-3">
                 {project.stack.map((item, idx) => (
                   <li
@@ -159,37 +152,52 @@ const Work = () => {
                 ))}
               </ul>
 
-              {/* Separator */}
               <hr className="border-gray-700 my-4" />
 
               {/* Action Buttons */}
               <div className="flex items-center gap-4">
                 {/* Live Button */}
-                <Link
-                  href={project.live || "#"}
-                  target={project.live ? "_blank" : undefined}
-                  rel={project.live ? "noopener noreferrer" : undefined}
-                  aria-label="Live Project"
-                >
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger
-                        className={`w-12 h-12 rounded-full bg-accent flex justify-center items-center text-primary shadow-lg hover:bg-accent-hover transition-colors duration-300 cursor-pointer ${
-                          !project.live ? "opacity-1" : ""
-                        }`}
-                        tabIndex={0}
-                      >
-                        <BsArrowUpRight className="text-2xl" />
-                      </TooltipTrigger>
-                      <TooltipContent side="top">
-                        <p>Live Project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.live ? (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Live Project"
+                  >
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger
+                          className="w-12 h-12 rounded-full bg-accent flex justify-center items-center text-primary shadow-lg hover:bg-accent-hover transition-colors duration-300 cursor-pointer"
+                          tabIndex={0}
+                        >
+                          <BsArrowUpRight className="text-2xl" />
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          <p>Live Project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </a>
+                ) : (
+                  <div
+                    className="w-12 h-12 rounded-full bg-accent flex justify-center items-center text-primary shadow-lg opacity-50 cursor-not-allowed"
+                    tabIndex={0}
+                  >
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger tabIndex={-1}>
+                          <BsArrowUpRight className="text-2xl" />
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          <p>Live Project Not Available</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
+                )}
 
                 {/* GitHub Button */}
-                <Link
+                <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -209,7 +217,7 @@ const Work = () => {
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -227,7 +235,6 @@ const Work = () => {
             >
               {projects.map((project, index) => (
                 <SwiperSlide key={index} className="relative w-full h-full">
-                  {/* Image with subtle overlay and zoom effect */}
                   <div className="relative w-full h-full group overflow-hidden rounded-3xl shadow-lg cursor-pointer">
                     <Image
                       src={project.image}
