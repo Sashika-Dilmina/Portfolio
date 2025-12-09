@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedinIn, FaYoutube, FaInstagram, FaTwitter } from "react
 
 const socials = [
   { icon: <FaGithub />, path: 'https://github.com/Sashika-Dilmina' },
-  { icon: <FaLinkedinIn />, path: 'https://www.linkedin.com/feed/' },
+  { icon: <FaLinkedinIn />, path: 'https://www.linkedin.com/in/sashika-dilmina-b8a3a4273/' },
   { icon: <FaInstagram />, path: 'https://ig.me/2WfaGOyCzCIgnd4' },
   { icon: <FaTwitter />, path: '' },
 ];

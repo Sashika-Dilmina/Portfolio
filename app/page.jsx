@@ -24,7 +24,7 @@ const Home = () => {
           </p>
           {/* btn and socials*/}
           <div className="flex flex-col xl:flex-row items-center gap-8">
-            <a href="/Sashika Dilmina CV Resume.pdf" download>
+            <a href="/Professional CV Resume.pdf" download>
             <Button 
                 variant="outline" 
                 size="lg" 
