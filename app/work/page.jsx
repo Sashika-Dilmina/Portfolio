@@ -49,7 +49,7 @@ const projects = [
       "Fully responsive Expense Tracker App using the MERN (MongoDB, Express, React, Node.js) stack!",
     stack: [{ name: "MongoDB" }, { name: "Express" }, { name: "React" }, { name: "Node.js" }],
     image: "/assets/work/thumb7.png",
-    live: "",
+    live: "https://spend-wise-bhah.vercel.app/",
     github: "https://github.com/Sashika-Dilmina/SpendWise",
   },
   {
@@ -60,7 +60,7 @@ const projects = [
       "Melody Masters is a responsive PHP–MySQL e-commerce platform for selling musical instruments and sheet music with secure login, cart, and admin inventory management.",
     stack: [{ name: "PHP" }, { name: "MySQL" }, { name: "HTML 5" }, { name: "CSS 3" }],
     image: "/assets/work/thumb10.png",
-    live: "",
+    live: "https://melody-master.infinityfreeapp.com/",
     github: "https://github.com/Sashika-Dilmina/melody-masters-store",
   },
   {
