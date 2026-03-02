@@ -50,11 +50,11 @@ const Contact = () => {
     // Build mailto link
     const subject = `Hire Request from ${formData.firstname} ${formData.lastname}`;
     const body = `
-Name: ${formData.firstname} ${formData.lastname}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Service: ${formData.service}
-Message: ${formData.message}
+      Name: ${formData.firstname} ${formData.lastname}
+      Email: ${formData.email}
+      Phone: ${formData.phone}
+      Service: ${formData.service}
+      Message: ${formData.message}
     `;
 
     const mailtoLink = `mailto:sashikadilmina2001@gmail.com?subject=${encodeURIComponent(
