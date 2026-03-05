@@ -60,7 +60,7 @@ const projects = [
       "Melody Masters is a responsive PHP–MySQL e-commerce platform for selling musical instruments and sheet music with secure login, cart, and admin inventory management.",
     stack: [{ name: "PHP" }, { name: "MySQL" }, { name: "HTML 5" }, { name: "CSS 3" }],
     image: "/assets/work/thumb10.png",
-    live: "https://melody-master.infinityfreeapp.com/",
+    live: "https://melodyweb.wuaze.com",
     github: "https://github.com/Sashika-Dilmina/melody-masters-store",
   },
   {
