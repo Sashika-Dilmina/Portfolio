@@ -32,14 +32,14 @@ const projects = [
   },
     {
     num: "02",
-    category: "3D IPhone-Website",
+    category: "Sniper Car Care Service POS System",
     title: "project 2",
     discription:
-      "Recreate the Apple IPhone 15 pro website, combining GSAP animations and Three.js 3D effects.",
-    stack: [{ name: "React" }, { name: "Threejs" }, { name: "GSAP" }, { name: "Tailwind css" }],
-    image: "/assets/work/thumb1.png",
-    live: "https://appleweb-xi.vercel.app/",
-    github: "https://github.com/Sashika-Dilmina/Apple-Website",
+      "Developed a web-based POS platform with ANPR vehicle recognition, digital payments, SMS automation, and analytics to streamline vehicle service center operations.",
+    stack: [{ name: "React" }, { name: "Node.js" }, { name: "MySQL" }, { name: "Tailwind css" }],
+    image: "/assets/work/thumb11.png",
+    live: "",
+    github: "https://github.com/Sashika-Dilmina/Sniper-Car-Care---POS-System",
   },
   {
     num: "03",
@@ -63,10 +63,21 @@ const projects = [
     live: "https://melodyweb.wuaze.com",
     github: "https://github.com/Sashika-Dilmina/melody-masters-store",
   },
-  {
+      {
     num: "05",
-    category: "Restaurant-Management-System",
+    category: "3D IPhone-Website",
     title: "project 5",
+    discription:
+      "Recreate the Apple IPhone 15 pro website, combining GSAP animations and Three.js 3D effects.",
+    stack: [{ name: "React" }, { name: "Threejs" }, { name: "GSAP" }, { name: "Tailwind css" }],
+    image: "/assets/work/thumb1.png",
+    live: "https://appleweb-xi.vercel.app/",
+    github: "https://github.com/Sashika-Dilmina/Apple-Website",
+  },
+  {
+    num: "06",
+    category: "Restaurant-Management-System",
+    title: "project 6",
     discription:
       "Admin Dashboard for a Restaurant Management System using HTML, CSS, JavaScript, and PHP.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Php" }],
@@ -75,9 +86,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Restaurant-Management-System",
   },
   {
-    num: "06",
+    num: "07",
     category: "Recipe-App",
-    title: "project 6",
+    title: "project 7",
     discription:
       "A React Native & Expo recipe app that uses an API to search and view recipes, with a feature to save favorite recipes for quick access.",
     stack: [{ name: "React Native" }, { name: "Expo" }, { name: "API" }],
@@ -86,9 +97,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Recipe-App-",
   },
   {
-    num: "07",
+    num: "08",
     category: "PageTurner - Online Book Store",
-    title: "project 7",
+    title: "project 8",
     discription:
       "Web application built with HTML, CSS, JavaScript, PHP, and MySQL with shopping cart & admin features.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Php" }],
@@ -97,9 +108,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Book-store",
   },
   {
-    num: "08",
+    num: "09",
     category: "Hotel-management-system",
-    title: "project 8",
+    title: "project 9",
     discription:
       "Java desktop application built with Swing and JDBC to streamline hotel operations.",
     stack: [{ name: "Java" }],
@@ -108,9 +119,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/Hotel-management-system",
   },
   {
-    num: "09",
+    num: "10",
     category: "AI-Powered-ChatBot",
-    title: "project 9",
+    title: "project 10",
     discription:
       "Simple AI chatbot using HTML, CSS, and JavaScript with an interactive interface.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
@@ -119,9 +130,9 @@ const projects = [
     github: "https://github.com/Sashika-Dilmina/AI-Powered-ChatBot",
   },
   {
-    num: "10",
+    num: "11",
     category: "PM-Manager",
-    title: "project 10",
+    title: "project 11",
     discription:
       "Modern project management tool with Gantt chart, task tracking, and PDF export built with React & TypeScript.",
     stack: [{ name: "React" }, { name: "Typescript" }],
